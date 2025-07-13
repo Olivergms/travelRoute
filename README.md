@@ -33,7 +33,7 @@ Tecnologias utilizadas :
    docker-compose up -d
    ```
 
-3. **Abrindo o sereviço** 
+3. **Abrindo o serviço** 
     - Abra o seu navegador
     - Acesse **https://localhost:8080/swagger**
 
