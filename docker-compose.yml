@@ -1,0 +1,35 @@
+services:
+    postgres-db:
+        image: postgres:15
+        container_name: postgres_db_travelroute
+        ports: 
+            - '5432:5432'
+        networks:
+             - my_network
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres123
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready"]
+            interval: 10s
+            timeout: 5s
+            retries: 5  
+    travelrouteapi:
+        container_name: travelroute-api-docker
+        restart: always
+        build:
+             context: .
+             dockerfile: Dockerfile
+        ports: 
+             - '8080:8080'
+             - '5020:5020'
+        environment:
+             - ASPNETCORE_ENVIRONMENT=Docker
+        depends_on:
+             - postgres-db
+        networks:
+             - my_network
+networks:
+    my_network:
+        driver: bridge
+        
