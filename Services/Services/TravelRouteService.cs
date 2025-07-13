@@ -29,14 +29,10 @@ public class TravelRouteService : ITravelRouteService
             if (travelRouteList.Count() < 1) throw new Exception("Nenhuma rota encontrada.");
 
 
-            var graph = new Graph(travelRouteList);
+            var result = Dijkstra.FindShortestRoute(travelRouteList.ToList(), dto.Origin, dto.Destination);
 
-            var (path, cost)  = graph.Dijkstra(dto.Origin, dto.Destination);
-            if (cost < 0)
-            {
-                throw new Exception($"Não existe rota de {dto.Origin} até {dto.Destination}");
-            }
-            return new ResponseGetTravelDto { Cost = cost, Route = path };
+            if (result == null) throw new Exception($"Não existe rota de {dto.Origin} até {dto.Destination}");
+            return new ResponseGetTravelDto { Cost = result.TotalCost, Route = result.Path };
 
 
 
