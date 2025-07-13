@@ -20,7 +20,7 @@ Tecnologias utilizadas :
 
 ---
 
-### Instação
+### Instalação
 
 1. **Clone o repositório**:
    ```bash
@@ -40,5 +40,5 @@ Tecnologias utilizadas :
 
 
 
-> **Note**: Para rodar local você terá que abrir o visão studio e selecionar o perfil `local`. Se o banco não estiver rodando na sua maquina, altere a string de conexão na linha 10 do arquivo `appsettings.json` no projeto `travelRoute-api`. 
+> **Note**: Para rodar local você terá que abrir o visual studio e selecionar o perfil `local`. Se o banco não estiver rodando na sua maquina, altere a string de conexão na linha 10 do arquivo `appsettings.json` no projeto `travelRoute-api`. 
 
